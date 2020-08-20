@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace DesignPattern
@@ -18,6 +19,10 @@ namespace DesignPattern
     {
         static void Main(string[] args)
         {
+            List<KeyValuePair<string, string>> list = new List<KeyValuePair<string, string>>();
+            list.Add(new KeyValuePair<string,string>("djdj", "2dwq"));
+            KeyValuePair<string, string> item = list.Find(x => x.Key == "djd3");
+            Console.WriteLine("dsa" + (item.Value == null ? "null" : $"{item.Value}") + "dsa");
             testBuiler();
             testSingleton();
         }
