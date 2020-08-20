@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 
 namespace DesignPattern
 {
@@ -7,9 +8,40 @@ namespace DesignPattern
         MAN,
         WOMAN
     }
+
+    enum OS
+    {
+        WIN,
+        MAC_OS
+    }
     class Program
     {
         static void Main(string[] args)
+        {
+            testBuiler();
+        }
+
+        private static void testAbstractFactory()
+        {
+            OS os = OS.WIN; // 실제 업무에선 이렇게 예시로 넣지말고 진짜 OS를 가져와야 됨.
+            IGUIFactory factory;
+            switch(os)
+            {
+                case OS.WIN:
+                    factory = new WinFactory();
+                    break;
+                case OS.MAC_OS:
+                    factory = new MacOSFactory();
+                    break;
+                default:
+                    throw new System.NotImplementedException();
+            }
+
+            IButton button = factory.CreateButton();
+            button.Paint();
+
+        }
+        private static void testBuiler()
         {
             StudentBuilder builder = new StudentBuilder();
 
