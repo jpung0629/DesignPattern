@@ -19,6 +19,7 @@ namespace DesignPattern
         static void Main(string[] args)
         {
             testBuiler();
+            testSingleton();
         }
 
         private static void testAbstractFactory()
@@ -59,6 +60,19 @@ namespace DesignPattern
 
             Console.WriteLine(student1);
             Console.WriteLine(student2);
+        }
+
+        private static void testSingleton()
+        {
+            Singleton singleton = Singleton.GetInstance();
+
+            singleton.Name = "ok";
+
+            Console.WriteLine(singleton.Name);
+
+            Singleton singleton2 = Singleton.GetInstance();
+
+            Console.WriteLine(singleton2.Name);
         }
     }
 
